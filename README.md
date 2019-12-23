@@ -1,4 +1,5 @@
 # Martin's Dotfiles
+please read below!
 
 This is mainly a backup, but other people can use also.
 
