@@ -1,0 +1,5 @@
+#!/bin/bash
+
+killall dwmbar
+
+nohup dwmbar > /dev/null 2>&1 &

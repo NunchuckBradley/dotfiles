@@ -1,0 +1,4 @@
+#!/usr/bin/env sh
+
+
+kill $(pstree -p | grep "$(ps aux | grep 'dwmbar' | grep '/bin/sh' | awk '{print $2}')" | grep -Po "(?<=sleep\().*?(?=\))")

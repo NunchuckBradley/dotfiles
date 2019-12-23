@@ -1,0 +1,59 @@
+urxvt.scrollBar: false
+
+urxvt.font: xft:DejaVu Sans Mono:pixelsize=18
+urxvt.boldFont: xft:DejaVu Sans Mono:pixelsize=18:weight=bold
+
+urxvt.saveLines: 1000000
+urxvt.perl-ext-common: default,matcher,font-size
+
+!! Open urls in browser with Control-Click
+!! Doesnt work on my system.
+urxvt.urlLauncher: /usr/bin/opera
+urxvt.matcher.button: C1
+
+!! Change font size on Control-Plus/Minus
+URxvt.keysym.C-Up:     font-size:increase
+URxvt.keysym.C-Down:   font-size:decrease
+URxvt.keysym.C-equal:  font-size:reset
+
+*.cursorColor:  #dbd9dd
+
+! black
+*.color0:       #0c0a0d
+*.color8:       #ddcaf3
+
+! red
+*.color1:       #18161a
+*.color9:       #85d4f5
+
+! green
+*.color2:       #2a282d
+*.color10:      #c495ef
+
+! yellow
+*.color3:       #433f47
+*.color11:      #f3bf93
+
+! blue
+*.color4:       #635e68
+*.color12:      #dd8aad
+
+! magenta
+*.color5:       #88838e
+*.color13:      #f5ad5e
+
+! cyan
+*.color6:       #b3afb6
+*.color14:      #c1a1e2
+
+! white
+*.color7:       #e3e2e4
+*.color15:      #82cbea
+
+
+URxvt*foreground: white
+URxvt*depth: 32
+URxvt*background: [45]#190b00
+
+URxvt.internalBorder:  8
+

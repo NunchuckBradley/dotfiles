@@ -1,0 +1,51 @@
+#!/bin/sh
+
+lang(){
+	cur=$(setxkbmap -query | awk '/layout:/ {print $2}')
+	echo "$cur"
+}
+
+vol(){
+	mon=$(amixer get Master | grep 'Mono:' | awk '{print $4}')
+	left=$(amixer get Master | grep 'Left:' | awk '{print $5}')
+	echo "vol $mon$left"
+}
+
+mem(){
+	# Megabites only
+	echo $(free -m | grep 'Mem:' | awk '{print $3 " MiB/" $2 " MiB"}')
+	# Human Readable
+#	echo $(free -h | grep 'Mem:' | awk '{print $3 " / " $2}')
+}
+
+cpu(){
+	printf "%0.2f%%" $(grep 'cpu ' /proc/stat | awk '{usage=($2+$4)*100/($2+$4+$5)} END {print usage}')
+}
+
+fdate(){
+	num=$(date +'%d')
+	lst=${foo:${#foo}-1:1}
+	case $lst in
+	        "11"|"12"|"13")
+	                pre="th"
+	                ;;
+	        "1")
+	                pre="st"
+	                ;;
+	        "2")
+	                pre="nd"
+	                ;;
+	        "3")
+	                pre="rd"
+	                ;;
+	        *)
+	                 pre="th"
+	                ;;
+	esac
+	echo "$(date +'%H:%M %b %d')$pre"
+}
+
+while :; do
+	xsetroot -name "$(echo -e '\uF11C')  $(lang)    $(echo -e '\uF028')  $(vol)    $(echo -e '\uF0C7')  $(mem)    $(echo -e '\uF073')  $(fdate) "
+	sleep 1m
+done

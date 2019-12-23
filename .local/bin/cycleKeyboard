@@ -1,0 +1,22 @@
+#!/bin/bash
+
+LANG=("us" "ru")
+
+
+CUR=$(setxkbmap -query | awk '/layout:/ {print $2}')
+for i in "${!LANG[@]}"; do
+	if [ "$CUR" == "${LANG[i]}" ]
+	then
+		POS=$((i+1))
+	fi
+done
+
+
+if [ $POS -lt ${#LANG[@]} ]
+then
+	NMB=$POS
+else
+	NMB=0
+fi
+
+setxkbmap "${LANG[${NMB}]}"
